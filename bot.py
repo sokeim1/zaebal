@@ -355,7 +355,24 @@ class MusicBot:
         
         # Запускаем бота
         logger.info("Бот запущен!")
-        application.run_polling(allowed_updates=Update.ALL_TYPES)
+        
+        # Для хостинга добавляем веб-сервер
+        import os
+        port = int(os.environ.get('PORT', 8000))
+        
+        # Запускаем с webhook для хостинга или polling для локальной разработки
+        if os.environ.get('KOYEB_PUBLIC_DOMAIN'):
+            # Webhook для Koyeb
+            webhook_url = f"https://{os.environ.get('KOYEB_PUBLIC_DOMAIN')}/webhook"
+            application.run_webhook(
+                listen="0.0.0.0",
+                port=port,
+                webhook_url=webhook_url,
+                allowed_updates=Update.ALL_TYPES
+            )
+        else:
+            # Polling для локальной разработки
+            application.run_polling(allowed_updates=Update.ALL_TYPES)
 
 if __name__ == "__main__":
     bot = MusicBot()

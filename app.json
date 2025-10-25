@@ -1,0 +1,29 @@
+{
+  "name": "Telegram Music Bot",
+  "description": "A Telegram bot for downloading music from SoundCloud",
+  "keywords": ["telegram", "bot", "music", "soundcloud"],
+  "website": "https://github.com/yourusername/telegram-music-bot",
+  "repository": "https://github.com/yourusername/telegram-music-bot",
+  "logo": "https://telegram.org/img/t_logo.png",
+  "success_url": "/",
+  "scripts": {
+    "postdeploy": "echo 'Bot deployed successfully'"
+  },
+  "env": {
+    "TELEGRAM_BOT_TOKEN": {
+      "description": "Your Telegram Bot Token from @BotFather",
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
