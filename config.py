@@ -1,6 +1,8 @@
+import os
+
 # Telegram Bot Configuration
-# ВАЖНО: Замените на ваш реальный токен от @BotFather
-TELEGRAM_BOT_TOKEN = "8355254283:AAEE06P7FLtlQrR3bHMNVo7G-KSI0wtOqEc"
+# ВАЖНО: Замените YOUR_BOT_TOKEN_HERE на ваш реальный токен от @BotFather
+TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '8355254283:AAEE06P7FLtlQrR3bHMNVo7G-KSI0wtOqEc')
 
 # Download Configuration
 MAX_DOWNLOAD_SIZE_MB = 50  # Максимальный размер файла в MB
